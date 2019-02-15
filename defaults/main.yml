@@ -1,0 +1,14 @@
+---
+# defaults file for nokeval_reader
+
+nokeval_reader_required_packages:
+  - python-apt
+
+nokeval_reader_repo_line: deb http://koti.kapsi.fi/hkroger/debs/stretch ./
+nokeval_reader_package: nokeval-reader
+nokeval_reader_package_state: present
+
+nokeval_reader_device: /dev/ttyUSB0
+nokeval_reader_baud: 9600
+nokeval_reader_key: <key here>
+nokeval_reader_id: <client id here>

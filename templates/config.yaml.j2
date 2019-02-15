@@ -1,0 +1,10 @@
+serial:
+  device: "{{ nokeval_reader_device }}"
+  baud: {{ nokeval_reader_baud }}
+  bits: 8
+  stopbits: 1
+database:
+  type: rest_storage
+  key: {{ nokeval_reader_key }}
+  client_id: {{ nokeval_reader_id }}
+buffer_file: "/var/lib/nokeval_reader/measurements.sqlite3"
