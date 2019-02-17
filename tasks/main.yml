@@ -2,9 +2,8 @@
 # tasks file for nokeval_reader
 - name: Install required packages
   apt:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ nokeval_reader_required_packages }}"
+    name: "{{ nokeval_reader_required_packages }}"
+    state: "{{ nokeval_reader_package_state }}"
 
 - name: Add nokeval_reader repo
   template:
@@ -12,16 +11,11 @@
     dest: /etc/apt/sources.list.d/measurinator.list
   register: nokeval_reader_repo
 
-- name: Update cache and allow unsecure repo
-  command: "apt update --allow-insecure-repositories"
-  args:
-    warn: false
-  when: nokeval_reader_repo.changed
-
 - name: Install nokeval_reader package
-  command: "apt install -y --allow-unauthenticated {{ nokeval_reader_package }} --allow-insecure-repositories"
-  args:
-    warn: false
+  apt:
+    name: "{{ nokeval_reader_package }}"
+    state: "{{ nokeval_reader_package_state }}"
+    update_cache: true
 
 - name: Create configuration file
   template:
@@ -29,6 +23,7 @@
     dest: /opt/nokeval_reader/config.yaml
     owner: reader
     group: reader
+  notify: restart nokeval_reader service
 
 - name: Start and enable nokeval_reader service
   systemd:

@@ -4,7 +4,7 @@
 nokeval_reader_required_packages:
   - python-apt
 
-nokeval_reader_repo_line: deb http://koti.kapsi.fi/hkroger/debs/stretch ./
+nokeval_reader_repo_line: "deb [trusted=yes] http://koti.kapsi.fi/hkroger/debs/stretch ./"
 nokeval_reader_package: nokeval-reader
 nokeval_reader_package_state: present
 

@@ -1,38 +1,57 @@
-Role Name
+Ansible Role nokeval_reader
 =========
 
-A brief description of the role goes here.
+This role is used to install and configure nokeval_reader. Typical install target is Raspberry Pi.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
+#### `nokeval_reader_key` (required)
+Enter your key here
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+#### `nokeval_reader_id`: (required)
+Enter your client id here
+
+#### `nokeval_reader_required_packages` (optional)
+A list of packages required by the role
+
+#### `nokeval_reader_repo_line`: (optional)
+Source repo for nokeval_reader packages
+
+#### `nokeval_reader_package` (optional)
+Nokeval_service user
+
+#### `nokeval_reader_package_state` (optional)
+This variable can be used to update (latest) or remove (absent) reader packages. Default value is present
+
+#### `nokeval_reader_device`: (optonal)
+Serial port of the device, default is /dev/ttyUSB0
+
+#### `nokeval_reader_baud` (optional)
+Serial port baud rate, default is 9600
+
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: raspberry
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: nokeval_reader, nokeval_reader_key: <key here>, nokeval_reader_id: <client id here> }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Tuomas Vallaskangas
+tvallas@iki.fi

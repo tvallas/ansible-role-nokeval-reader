@@ -1,2 +1,7 @@
 ---
 # handlers file for nokeval_reader
+
+- name: restart nokeval_reader service
+  systemd:
+    name: nokeval_reader.service
+    state: restarted
