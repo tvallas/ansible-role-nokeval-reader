@@ -16,6 +16,7 @@
     name: "{{ nokeval_reader_package }}"
     state: "{{ nokeval_reader_package_state }}"
     update_cache: true
+  notify: restart nokeval_reader service
 
 - name: Create configuration file
   template:
