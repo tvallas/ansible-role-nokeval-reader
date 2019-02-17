@@ -23,7 +23,7 @@ A list of packages required by the role
 Source repo for nokeval_reader packages
 
 #### `nokeval_reader_package` (optional)
-Nokeval_service user
+nokeval_reader package name
 
 #### `nokeval_reader_package_state` (optional)
 This variable can be used to update (latest) or remove (absent) reader packages. Default value is present
